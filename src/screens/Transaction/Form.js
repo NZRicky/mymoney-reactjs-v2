@@ -1,8 +1,9 @@
 import React, { Component, Fragment, useState, useEffect } from 'react';
+import TransactionForm from '../../components/Transaction/Form';
 
-import CategoryList from '../../components/Category/List';
 
-const ScreenCategoryList = () => {
+
+const ScreenTransactionForm = () => {
 
     const [categories, setCategories] = useState([]);
 
@@ -17,24 +18,11 @@ const ScreenCategoryList = () => {
         });
     }, []);
 
-    
-
     return (
-        <Fragment>
-            <table>
+        
+            <TransactionForm categories={categories} />
 
-<thead>
-                    <tr><td>Name</td></tr>
-                    </thead>
-                <tbody>
-                    <CategoryList categories={categories} />
-                </tbody>
-
-            </table>
-
-
-        </Fragment>
     );
 }
 
-export default ScreenCategoryList;
+export default ScreenTransactionForm;
