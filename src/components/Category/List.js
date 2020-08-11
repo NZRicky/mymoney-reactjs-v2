@@ -1,13 +1,17 @@
 import React from 'react';
 
-const CategoryList = ({categorys}) => {
-    return (categorys.map((item) => (
-        <tr key={item.id}>
-          <td>{item.name}</td>
+const CategoryList = ({ categories }) => {
 
-        </tr>
+  if (Array.isArray(categories) && categories.length > 0) {
+    
 
-      )));
+    return (categories.map((item) => (
+      <tr key={item.id}>
+        <td>{item.name}</td>
+      </tr>
+    )));
+  }
+  return null;
 };
 
 export default CategoryList;
