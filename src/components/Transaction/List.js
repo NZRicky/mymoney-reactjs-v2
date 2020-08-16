@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -8,58 +8,25 @@ import ImageIcon from '@material-ui/icons/Image';
 import WorkIcon from '@material-ui/icons/Work';
 import BeachAccessIcon from '@material-ui/icons/BeachAccess'
 import ListSubheader from '@material-ui/core/ListSubheader';
+import { ListItemSecondaryAction } from '@material-ui/core';
 
 const TransactionList = ({ transactions }) => {
   console.log(transactions);
   return (transactions.map((item) => (
-    <>
-    <ListItem>
-      <ListItemAvatar>
-        <Avatar>
-          <ImageIcon />
-        </Avatar>
-      </ListItemAvatar>
-      <ListItemText primary={item.category} secondary={item.date} />
-      <ListSubheader>${item.amount}</ListSubheader>
-    </ListItem>
+    <Fragment key={item.id}>
 
-<ListItem>
-<ListItemAvatar>
-  <Avatar>
-    <ImageIcon />
-  </Avatar>
-</ListItemAvatar>
-<ListItemText primary={item.category} secondary={item.date} />
-</ListItem>
-
-<ListItem>
-<ListItemAvatar>
-  <Avatar>
-    <ImageIcon />
-  </Avatar>
-</ListItemAvatar>
-<ListItemText primary={item.category} secondary={item.date} />
-</ListItem>
-
-<ListItem>
-<ListItemAvatar>
-  <Avatar>
-    <ImageIcon />
-  </Avatar>
-</ListItemAvatar>
-<ListItemText primary={item.category} secondary={item.date} />
-</ListItem>
-
-<ListItem>
-<ListItemAvatar>
-  <Avatar>
-    <ImageIcon />
-  </Avatar>
-</ListItemAvatar>
-<ListItemText primary={item.category} secondary={item.date} />
-</ListItem>
-</>
-
+      <ListItem>
+        <ListItemAvatar>
+          <Avatar>
+            <ImageIcon />
+          </Avatar>
+        </ListItemAvatar>
+        <ListItemText primary={item.category} secondary={item.date}></ListItemText>
+        <ListItemSecondaryAction>
+          ${item.amount}
+        </ListItemSecondaryAction>
+      </ListItem>
+    </Fragment>
     // <tr key={item.id}>
     //   <td>{item.date}</td>
     //   <td>{item.amount}</td>

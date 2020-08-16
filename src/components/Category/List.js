@@ -1,14 +1,24 @@
-import React from 'react';
-
+import React, { Fragment } from 'react';
+import { ListItem, ListItemAvatar, ListItemText, Avatar } from '@material-ui/core';
+import ImageIcon from '@material-ui/icons/Image';
 const CategoryList = ({ categories }) => {
 
   if (Array.isArray(categories) && categories.length > 0) {
-    
+
 
     return (categories.map((item) => (
-      <tr key={item.id}>
-        <td>{item.name}</td>
-      </tr>
+      <Fragment key={item.id}>
+        <ListItem>
+          <ListItemAvatar>
+            <Avatar>
+              <ImageIcon />
+            </Avatar>
+          </ListItemAvatar>
+          <ListItemText primary={item.name} ></ListItemText>
+
+        </ListItem>
+      </Fragment>
+
     )));
   }
   return null;

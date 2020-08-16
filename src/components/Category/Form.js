@@ -1,8 +1,28 @@
 import React, { Fragment, useState } from 'react';
 import { fetchErrorHandler, fetchSuccessHandler, fetchCatchHandler } from '../../helpers/FetchHandling';
+import { Button, TextField, makeStyles } from '@material-ui/core';
 
-
+const useStyles = makeStyles((theme) => ({
+  root: {
+    '& > *': {
+      margin: theme.spacing(1),
+      width: '25ch',
+    },
+    
+  },
+  selectEmpty: {
+    marginTop: theme.spacing(2),
+  },
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 120,
+  },
+  button: {
+    marginTop: theme.spacing(4)
+  }
+}));
 const CategoryForm = () => {
+  const classes = useStyles();
   const [name, setName] = useState('');
 
   async function saveCategory() {
@@ -20,9 +40,10 @@ const CategoryForm = () => {
 
   return (
     <Fragment>
-      <label>Name</label>
-      <input type="text" id="name" onChange={(e) => setName(e.target.value)} />
-      <button onClick={() => saveCategory()}>Submit</button>
+      <form className={classes.root} noValidate autoComplete="off">
+      <TextField id="standard-basic" label="Name" onChange={(e) => setName(e.target.value)} />
+      <Button variant="contained"  onClick={() => saveCategory()} className={classes.button}>Submit</Button>
+      </form>
     </Fragment>
   );
 };
